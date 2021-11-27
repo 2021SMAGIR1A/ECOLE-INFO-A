@@ -1,6 +1,6 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/2021SMAGIR1A/ECOLE-INFO-A/main/public/logo.png" width="400"></a></p>
 
-<h4>Made by Group 1 of SMAGIR2A <u>made with</u></h4>
+<center><h4>Made by Group 1 of SMAGIR2A <u>made with</u></h4></center>
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
