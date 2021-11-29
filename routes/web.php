@@ -12,12 +12,32 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('register', function () {
+    if (\Auth::user()) {
+        return redirect()->route('home');
+    }
+    return view('pages.auth.register');
+})->name('register');
+Route::get('password-recover', function () {
+    if (\Auth::user()) {
+        return redirect()->route('home');
+    }
+    return view('pages.auth.pwdrecover');
+})->name('pwdrecover');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'admin.user'], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('home');
+    require 'web-main.php';
 });
 
 
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
+Voyager::routes();
+
+Route::fallback(function(){
+    return back();
+    return view('pages.error404');
 });
+// Route::group(['prefix' => 'admin'], function () {
+// });
