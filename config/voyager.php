@@ -45,6 +45,8 @@ return [
         //'namespace' => 'App\\Models\\',
     ],
 
+    'assets_path' => '/vendor/tcg/voyager/publishable/assets',
+
     /*
     |--------------------------------------------------------------------------
     | Storage Config
@@ -189,6 +191,7 @@ return [
 
     // Here you can specify additional assets you would like to be included in the master.blade
     'additional_css' => [
+        // 'css/fonts.css',
         //'css/custom.css',
     ],
 

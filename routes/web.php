@@ -27,6 +27,7 @@ Route::get('password-recover', function () {
 
 Route::group(['middleware' => 'admin.user'], function () {
     Route::get('/', function () {
+        return view('pages.index');
         return view('welcome');
     })->name('home');
     require 'web-main.php';
