@@ -31,7 +31,7 @@
                                 <span><img src="{{ asset('logo.png') }}" alt="" height="70"></span>
                             </a>
                             <a href="{{ route('home') }}" class="logo-light">
-                                <span><img src="{{ asset('logo.png') }}" alt="" height="70"></span>
+                                <span><img src="{{ asset('logo-dark.png') }}" alt="" height="70"></span>
                             </a>
                         </div>
 
