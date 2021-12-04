@@ -15,11 +15,11 @@ use App\Http\Controllers\ClasseController;
 |
 */
 Route::group(['prefix' => 'classe'], function (){
-    Route::get('/', [ClasseController::class, 'getIndex'])->name('Module-TaskManagerClasseGetIndex');
-    Route::get('/{uuid}', [ClasseController::class, 'getFind'])->name('Module-TaskManagerClasseGetFind');
-    Route::get('/create', [ClasseController::class, 'getCreate'])->name('Module-TaskManagerClasseGetCreate');
-    Route::post('/create', [ClasseController::class, 'postCreate'])->name('Module-TaskManagerClassePostCreate');
-    Route::get('/edit/{uuid}', [ClasseController::class, 'getEdit'])->name('Module-TaskManagerClasseGetEdit');
-    Route::post('/edit/{uuid}', [ClasseController::class, 'postEdit'])->name('Module-TaskManagerClassePostEdit');
-    Route::post('/delete', [ClasseController::class, 'postDelete'])->name('Module-TaskManagerClassePostDelete');
+    Route::get('/', [ClasseController::class, 'getIndex'])->name('ClasseGetIndex');
+    Route::get('/{uuid}', [ClasseController::class, 'getFind'])->name('ClasseGetFind');
+    Route::get('/create', [ClasseController::class, 'getCreate'])->name('ClasseGetCreate');
+    Route::post('/create', [ClasseController::class, 'postCreate'])->name('ClassePostCreate');
+    Route::get('/edit/{uuid}', [ClasseController::class, 'getEdit'])->name('ClasseGetEdit');
+    Route::post('/edit/{uuid}', [ClasseController::class, 'postEdit'])->name('ClassePostEdit');
+    Route::post('/delete', [ClasseController::class, 'postDelete'])->name('ClassePostDelete');
 });

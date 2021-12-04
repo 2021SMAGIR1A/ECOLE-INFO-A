@@ -15,11 +15,11 @@ use App\Http\Controllers\NotificationController;
 |
 */
 Route::group(['prefix' => 'notification'], function (){
-    Route::get('/', [NotificationController::class, 'getIndex'])->name('Module-TaskManagerNotificationGetIndex');
-    Route::get('/{uuid}', [NotificationController::class, 'getFind'])->name('Module-TaskManagerNotificationGetFind');
-    Route::get('/create', [NotificationController::class, 'getCreate'])->name('Module-TaskManagerNotificationGetCreate');
-    Route::post('/create', [NotificationController::class, 'postCreate'])->name('Module-TaskManagerNotificationPostCreate');
-    Route::get('/edit/{uuid}', [NotificationController::class, 'getEdit'])->name('Module-TaskManagerNotificationGetEdit');
-    Route::post('/edit/{uuid}', [NotificationController::class, 'postEdit'])->name('Module-TaskManagerNotificationPostEdit');
-    Route::post('/delete', [NotificationController::class, 'postDelete'])->name('Module-TaskManagerNotificationPostDelete');
+    Route::get('/', [NotificationController::class, 'getIndex'])->name('NotificationGetIndex');
+    Route::get('/{uuid}', [NotificationController::class, 'getFind'])->name('NotificationGetFind');
+    Route::get('/create', [NotificationController::class, 'getCreate'])->name('NotificationGetCreate');
+    Route::post('/create', [NotificationController::class, 'postCreate'])->name('NotificationPostCreate');
+    Route::get('/edit/{uuid}', [NotificationController::class, 'getEdit'])->name('NotificationGetEdit');
+    Route::post('/edit/{uuid}', [NotificationController::class, 'postEdit'])->name('NotificationPostEdit');
+    Route::post('/delete', [NotificationController::class, 'postDelete'])->name('NotificationPostDelete');
 });

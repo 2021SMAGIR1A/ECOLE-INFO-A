@@ -32,12 +32,12 @@ class BaseModel extends Model
         static::creating(
             function ($model) {
                 $model->uuid = (string) Str::uuid();
-                /*$model->created_by = Auth::id() ?? 1;
-                $model->updated_by = Auth::id() ?? 1;*/
+                $model->created_by = Auth::id() ?? 1;
+                $model->updated_by = Auth::id() ?? 1;
             }
         );
 
-        /*static::updating(
+        static::updating(
             function ($model) {
                 $model->updated_by = Auth::id() ?? 1;
             }
@@ -51,7 +51,7 @@ class BaseModel extends Model
                     ]
                 );
             }
-        );*/
+        );
 
         parent::boot();
     }

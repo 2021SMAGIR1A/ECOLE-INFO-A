@@ -6,14 +6,14 @@
         <div class="border-bottom shadow-sm homeJumbotron d-flex align-items-center p-2" style="line-height: .10rem;">
             <div class="col-1"><span class="integral-box integral-box-sm integral-box-gray"><i class="fas fa-tasks"></i></span></div>
             <div class="col-6">
-                <label class="h3 font-weight-bold mt-1">Task Manager</label>
-                <p class="text-muted">Affichage des </p>
+                <label class="h3 font-weight-bold mt-1">Notes</label>
+                <p class="text-muted">Affichage des Notes</p>
             </div>
             <div class="col-5 d-flex justify-content-end">
                 <ol class="breadcrumb bg-transparent">
                     <li class="mx-1">
                         <button class="btn btn-light btn-sm border-primary rounded-pill" data-toggle="modal" data-target="#createMarkModal">
-                            <i class="fa fa-plus"></i> Ajouter un 
+                            <i class="fa fa-plus"></i> Ajouter une Note
                         </button>
                     </li>
                 </ol>
@@ -24,8 +24,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card my-3">
-                    <h5 class="card-header">
-                        <i class="fas fa-list"></i> LISTE DES 
+                    <h5 class="card-header text-uppercase">
+                        <i class="fas fa-list"></i> LISTE DES Notes
                     </h5>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -33,61 +33,63 @@
                                 <thead>
                                 <tr>
                                     <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">N°</th>
-                                    <th class="text-center"></th>
-                                    <th class="text-center"></th>
-                                    <th class="text-center"></th>
-                                    <th class="text-center"></th>
+                                    <th class="text-center text-uppercase">note</th>
+                                    <th class="text-center text-uppercase"></th>
+                                    <th class="text-center text-uppercase"></th>
+                                    <th class="text-center text-uppercase"></th>
                                     
                                     <th class="text-center">ACTIONS</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @isset($marks)
-                                    @foreach($marks as $key => $marks)
+                                    @foreach($marks as $key => $mark)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-<td class="text-truncate" style="max-width: 200px"><span title="{{ $marks->mark }}">{{ $marks->mark }}</span></td>
-                                            <td class="text-truncate" style="max-width: 200px"><span title="{{ $marks->observations }}">{{ $marks->observations }}</span></td>
-                                            <td class="text-truncate" style="max-width: 200px"><span title="{{ $marks->tests_id }}">{{ $marks->tests_id }}</span></td>
-                                            <td class="text-truncate" style="max-width: 200px"><span title="{{ $marks->students_id }}">{{ $marks->students_id }}</span></td>
+                                            <td class="text-truncate" style="max-width: 200px"><span title="{{ $mark->mark }}">{{ $mark->mark }}</span></td>
+                                            <td class="text-truncate" style="max-width: 200px"><span title="{{ $mark->observations }}">{{ $mark->observations }}</span></td>
+                                            <td class="text-truncate" style="max-width: 200px"><span title="{{ $mark->tests_id }}">{{ $mark->tests_id }}</span></td>
+                                            <td class="text-truncate" style="max-width: 200px"><span title="{{ $mark->students_id }}">{{ $mark->students_id }}</span></td>
                                             
                                             <td class="text-center">
                                                 <div class="d-inline-flex">
-                                                    <a href="{{ route('Module-TaskManagerMarkGetFind', $marks->uuid) }}" title="Consulter"
-                                                        data-id= "{{ $marks->id }}"
-                                                        data-uuid= "{{ $marks->uuid }}"
-                                                        data-mark= "{{ $marks->mark }}"
-                                                        data-observations= "{{ $marks->observations }}"
-                                                        data-tests_id= "{{ $marks->tests_id }}"
-                                                        data-students_id= "{{ $marks->students_id }}"
-                                                        
+                                                    <a href="{{ route('MarkGetFind', $mark->uuid) }}" title="Consulter"
+                                                        {{-- data-id= "{{ $mark->id }}"
+                                                        data-uuid= "{{ $mark->uuid }}"
+                                                        data-mark= "{{ $mark->mark }}"
+                                                        data-observations= "{{ $mark->observations }}"
+                                                        data-tests_id= "{{ $mark->tests_id }}"
+                                                        data-students_id= "{{ $mark->students_id }}"
+                                                         --}}
                                                         data-toggle="modal"
-                                                        data-target=".modal-show"
-                                                        class="btn btn-sm btn-outline-info modalShow mr-1">
-                                                        <i class="fa fa-eye"></i>
+                                                        data-target="#showMark{{ $mark->uuid }}Modal"
+                                                        class="mr-1">
+                                                        <i class="mdi mdi-eye text-info"></i>
                                                     </a>
-                                                    <a href="{{ route('Module-TaskManagerMarkPostEdit', $marks->uuid) }}" title="Editer"
-                                                        data-id= "{{ $marks->id }}"
-                                                        data-uuid= "{{ $marks->uuid }}"
-                                                        data-mark= "{{ $marks->mark }}"
-                                                        data-observations= "{{ $marks->observations }}"
-                                                        data-tests_id= "{{ $marks->tests_id }}"
-                                                        data-students_id= "{{ $marks->students_id }}"
-                                                        
+                                                    <a href="{{ route('MarkPostEdit', $mark->uuid) }}" title="Editer"
+                                                        {{-- data-id= "{{ $mark->id }}"
+                                                        data-uuid= "{{ $mark->uuid }}"
+                                                        data-mark= "{{ $mark->mark }}"
+                                                        data-observations= "{{ $mark->observations }}"
+                                                        data-tests_id= "{{ $mark->tests_id }}"
+                                                        data-students_id= "{{ $mark->students_id }}"
+                                                         --}}
                                                         data-toggle="modal"
-                                                        data-target=".modal-edit"
-                                                        class="btn btn-sm btn-outline-success modalEdit mr-1">
-                                                        <i class="fa fa-edit"></i>
+                                                        data-target="#editMark{{ $mark->uuid }}Modal"
+                                                        class="mr-1">
+                                                        <i class="mdi mdi-square-edit-outline text-success"></i>
                                                     </a>
-                                                    {{-- <button class="btn btn-sm btn-outline-success modalEdit mr-1 btnEditMark" title="Editer">
-                                                        <i class="fa fa-edit"></i>
+                                                    {{-- <button class="modalEdit mr-1 btnEditMark" title="Editer">
+                                                        <i class=\mdi mdi-square-edit-outline"></i>
                                                     </button> --}}
-                                                    <button type="submit" class="btn btn-sm btn-outline-danger delete" data-uuid="{{ $marks->uuid }}" title="Supprimer">
-                                                        <i class="fas fa-times-circle"></i>
+                                                    <button type="submit" class="delete" data-uuid="{{ $mark->uuid }}" title="Supprimer">
+                                                        <i class="mdi mdi-delete text-danger"></i>
                                                     </button>
                                                 </div>
                                             </td>
                                         </tr>
+                                        @include('pages.marks._show')
+                                        @include('pages.marks._edit')
                                     @endforeach
                                 @endisset
                                 </tbody>
@@ -100,8 +102,6 @@
     </div>
 
     @include('pages.marks._create')
-    @include('pages.marks._show')
-    @include('pages.marks._edit')
 @endsection
 
     

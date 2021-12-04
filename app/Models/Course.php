@@ -12,6 +12,7 @@ class Course extends BaseModel
      */
     protected $table = 'courses';
     
+    protected $guarded = ['id'];
     
     /**
      * Default keys to return
@@ -56,8 +57,8 @@ class Course extends BaseModel
             'title' => $values['title'],
             'description' => $values['description'],
         ]);
-        return ($create ? ['status' => true, 'message' => 'Ajout de  effectué avec succès !', 'data' => self::find($create)] :
-            ['status' => false, 'message' => 'Ajout de  Impossible !']);
+        return ($create ? ['status' => true, 'message' => 'Ajout de Cours effectué avec succès !', 'data' => self::find($create)] :
+            ['status' => false, 'message' => 'Ajout de Cours Impossible !']);
 
     }
 
@@ -77,8 +78,8 @@ class Course extends BaseModel
 
             'updated_at' => gmdate('Y-m-d H:i:s'),
         ]);
-        return ($create ? ['status' => true, 'message' => 'Mise à jour de  effectuée avec succès !', 'data' => self::find($create)] :
-            ['status' => false, 'message' => 'Mise à jour de  Impossible !']);
+        return ($create ? ['status' => true, 'message' => 'Mise à jour de Cours effectuée avec succès !', 'data' => self::find($create)] :
+            ['status' => false, 'message' => 'Mise à jour de Cours Impossible !']);
 
     }
 

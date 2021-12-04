@@ -17,8 +17,8 @@ class CreateTeachersTable extends Migration
             $table->increments('id');
             $table->string('uuid', 250);
             $table->string('matricule', 45);
-            $table->string('nom', 45);
-            $table->string('prenoms', 250);
+            $table->string('firstname', 250);
+            $table->string('lastname', 250);
             $table->integer('users_id');
         
             $table->integer('created_by');

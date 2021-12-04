@@ -15,11 +15,11 @@ use App\Http\Controllers\ComplaintController;
 |
 */
 Route::group(['prefix' => 'complaint'], function (){
-    Route::get('/', [ComplaintController::class, 'getIndex'])->name('Module-TaskManagerComplaintGetIndex');
-    Route::get('/{uuid}', [ComplaintController::class, 'getFind'])->name('Module-TaskManagerComplaintGetFind');
-    Route::get('/create', [ComplaintController::class, 'getCreate'])->name('Module-TaskManagerComplaintGetCreate');
-    Route::post('/create', [ComplaintController::class, 'postCreate'])->name('Module-TaskManagerComplaintPostCreate');
-    Route::get('/edit/{uuid}', [ComplaintController::class, 'getEdit'])->name('Module-TaskManagerComplaintGetEdit');
-    Route::post('/edit/{uuid}', [ComplaintController::class, 'postEdit'])->name('Module-TaskManagerComplaintPostEdit');
-    Route::post('/delete', [ComplaintController::class, 'postDelete'])->name('Module-TaskManagerComplaintPostDelete');
+    Route::get('/', [ComplaintController::class, 'getIndex'])->name('ComplaintGetIndex');
+    Route::get('/{uuid}', [ComplaintController::class, 'getFind'])->name('ComplaintGetFind');
+    Route::get('/create', [ComplaintController::class, 'getCreate'])->name('ComplaintGetCreate');
+    Route::post('/create', [ComplaintController::class, 'postCreate'])->name('ComplaintPostCreate');
+    Route::get('/edit/{uuid}', [ComplaintController::class, 'getEdit'])->name('ComplaintGetEdit');
+    Route::post('/edit/{uuid}', [ComplaintController::class, 'postEdit'])->name('ComplaintPostEdit');
+    Route::post('/delete', [ComplaintController::class, 'postDelete'])->name('ComplaintPostDelete');
 });

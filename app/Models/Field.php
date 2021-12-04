@@ -12,6 +12,7 @@ class Field extends BaseModel
      */
     protected $table = 'fields';
     
+    protected $guarded = ['id'];
     
     /**
      * Default keys to return
@@ -56,8 +57,8 @@ class Field extends BaseModel
             'title' => $values['title'],
             'description' => $values['description'],
         ]);
-        return ($create ? ['status' => true, 'message' => 'Ajout de  effectué avec succès !', 'data' => self::find($create)] :
-            ['status' => false, 'message' => 'Ajout de  Impossible !']);
+        return ($create ? ['status' => true, 'message' => 'Ajout de Filière effectué avec succès !', 'data' => self::find($create)] :
+            ['status' => false, 'message' => 'Ajout de Filière Impossible !']);
 
     }
 
@@ -77,8 +78,8 @@ class Field extends BaseModel
 
             'updated_at' => gmdate('Y-m-d H:i:s'),
         ]);
-        return ($create ? ['status' => true, 'message' => 'Mise à jour de  effectuée avec succès !', 'data' => self::find($create)] :
-            ['status' => false, 'message' => 'Mise à jour de  Impossible !']);
+        return ($create ? ['status' => true, 'message' => 'Mise à jour de Filière effectuée avec succès !', 'data' => self::find($create)] :
+            ['status' => false, 'message' => 'Mise à jour de Filière Impossible !']);
 
     }
 

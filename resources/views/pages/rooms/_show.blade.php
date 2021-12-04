@@ -1,9 +1,9 @@
 
-<div class="modal fade modal-show" id="showRoomModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade modal-show" id="showRoom{{ $room->uuid }}Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header bg-main-primary">
-                <h4 class="modal-title" id="exampleModalLabel"><i class="fas fa-file"></i> AFFICHAGE D'UN </h4>
+                <h4 class="modal-title text-uppercase" id="exampleModalLabel"><i class="fas fa-file"></i> AFFICHAGE D'UNE Salle</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" class="text-danger" id="closeModal">&times;</span>
                 </button>
@@ -14,14 +14,14 @@
                         <input id="title_show" type="text" class="form-control" required
                                 name="title"
                                 placeholder="Entrez le titre"
-                                value="" readonly="readonly">
+                                value="{{ $room->title }}" readonly="readonly">
                     </div>
                 <div class="form-group">
                         <label for="description_show"> <strong>Description</strong></label>
                         <textarea id="description_show" class="form-control"
                               name="description"
                               rows="5"
-                              placeholder="Entrez la description" readonly="readonly"></textarea>
+                              placeholder="Entrez la description" readonly="readonly">{{ $room->description }}</textarea>
                     </div>
                 
                 <div class="modal-footer">

@@ -12,6 +12,7 @@ class Student extends BaseModel
      */
     protected $table = 'students';
     
+    protected $guarded = ['id'];
     
     /**
      * Default keys to return
@@ -62,8 +63,8 @@ class Student extends BaseModel
             'classes_id' => $values['classes_id'],
             'users_id' => $values['users_id'],
         ]);
-        return ($create ? ['status' => true, 'message' => 'Ajout de  effectué avec succès !', 'data' => self::find($create)] :
-            ['status' => false, 'message' => 'Ajout de  Impossible !']);
+        return ($create ? ['status' => true, 'message' => 'Ajout de Elève effectué avec succès !', 'data' => self::find($create)] :
+            ['status' => false, 'message' => 'Ajout de Elève Impossible !']);
 
     }
 
@@ -89,8 +90,8 @@ class Student extends BaseModel
 
             'updated_at' => gmdate('Y-m-d H:i:s'),
         ]);
-        return ($create ? ['status' => true, 'message' => 'Mise à jour de  effectuée avec succès !', 'data' => self::find($create)] :
-            ['status' => false, 'message' => 'Mise à jour de  Impossible !']);
+        return ($create ? ['status' => true, 'message' => 'Mise à jour de Elève effectuée avec succès !', 'data' => self::find($create)] :
+            ['status' => false, 'message' => 'Mise à jour de Elève Impossible !']);
 
     }
 

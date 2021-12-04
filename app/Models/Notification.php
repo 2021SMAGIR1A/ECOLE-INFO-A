@@ -12,6 +12,7 @@ class Notification extends BaseModel
      */
     protected $table = 'notifications';
     
+    protected $guarded = ['id'];
     
     /**
      * Default keys to return

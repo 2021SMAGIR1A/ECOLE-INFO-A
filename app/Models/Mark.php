@@ -12,6 +12,7 @@ class Mark extends BaseModel
      */
     protected $table = 'marks';
     
+    protected $guarded = ['id'];
     
     /**
      * Default keys to return
@@ -58,8 +59,8 @@ class Mark extends BaseModel
             'tests_id' => $values['tests_id'],
             'students_id' => $values['students_id'],
         ]);
-        return ($create ? ['status' => true, 'message' => 'Ajout de  effectué avec succès !', 'data' => self::find($create)] :
-            ['status' => false, 'message' => 'Ajout de  Impossible !']);
+        return ($create ? ['status' => true, 'message' => 'Ajout de Note effectué avec succès !', 'data' => self::find($create)] :
+            ['status' => false, 'message' => 'Ajout de Note Impossible !']);
 
     }
 
@@ -81,8 +82,8 @@ class Mark extends BaseModel
 
             'updated_at' => gmdate('Y-m-d H:i:s'),
         ]);
-        return ($create ? ['status' => true, 'message' => 'Mise à jour de  effectuée avec succès !', 'data' => self::find($create)] :
-            ['status' => false, 'message' => 'Mise à jour de  Impossible !']);
+        return ($create ? ['status' => true, 'message' => 'Mise à jour de Note effectuée avec succès !', 'data' => self::find($create)] :
+            ['status' => false, 'message' => 'Mise à jour de Note Impossible !']);
 
     }
 
