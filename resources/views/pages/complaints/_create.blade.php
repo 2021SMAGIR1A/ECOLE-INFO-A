@@ -3,46 +3,46 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header bg-main-primary">
-                <h4 class="modal-title" id="exampleModalLabel"><i class="fas fa-file"></i> AJOUT D'UN </h4>
+                <h4 class="modal-title text-uppercase" id="exampleModalLabel"><i class="fas fa-file"></i> AJOUT D'UNE Reclamation</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" class="text-danger" id="closeModal">&times;</span>
                 </button>
             </div>
-            <form class="modal-body" role="form" method="POST" action="{{ route('Module-TaskManagerComplaintPostCreate') }}">
+            <form class="modal-body" role="form" method="POST" action="{{ route('ComplaintPostCreate') }}">
                 {{ csrf_field() }}
                 <div class="form-group">
-                        <label for="title"> <strong>Titre</strong><span title="Requis" style="color: #DE3246">(*)</span></label>
-                        <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' has-error' : '' }}" required
-                                name="title"
-                                placeholder="Entrez le titre"
-                                value="{{ old('title') }}">
-                        @if ($errors->has('title'))
-                            <span class="glyphicon glyphicon-remove form-control-feedback"></span>
-                            <span class="help-block"><strong>{{ $errors->first('title') }}</strong></span>
-                        @endif
-                    </div>
+                    <label for="title"> <strong>Titre</strong><span title="Requis" style="color: #DE3246">(*)</span></label>
+                    <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' has-error' : '' }}" required
+                            name="title"
+                            placeholder="Entrez le titre"
+                            value="{{ old('title') }}">
+                    @if ($errors->has('title'))
+                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        <span class="help-block"><strong>{{ $errors->first('title') }}</strong></span>
+                    @endif
+                </div>
                 <div class="form-group">
-                        <label for="description"> <strong>Description</strong></label>
-                        <textarea id="description" class="form-control{{ $errors->has('description') ? ' has-error' : '' }}"
-                              name="description"
-                              rows="5"
-                              placeholder="Entrez la description">{{ old('description') }}</textarea>
-                        @if ($errors->has('description'))
-                            <span class="glyphicon glyphicon-remove form-control-feedback"></span>
-                            <span class="help-block"><strong>{{ $errors->first('description') }}</strong></span>
-                        @endif
-                    </div>
+                    <label for="description"> <strong>Description</strong></label>
+                    <textarea id="description" class="form-control{{ $errors->has('description') ? ' has-error' : '' }}"
+                            name="description"
+                            rows="5"
+                            placeholder="Entrez la description">{{ old('description') }}</textarea>
+                    @if ($errors->has('description'))
+                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        <span class="help-block"><strong>{{ $errors->first('description') }}</strong></span>
+                    @endif
+                </div>
                 <div class="form-group">
-                        <label for="marks_id"> <strong></strong><span marks_id="Requis" style="color: #DE3246">(*)</span></label>
-                        <input id="marks_id" type="text" class="form-control{{ $errors->has('marks_id') ? ' has-error' : '' }}" required
-                                name="marks_id"
-                                placeholder="Entrez le "
-                                value="{{ old('marks_id') }}">
-                        @if ($errors->has('marks_id'))
-                            <span class="glyphicon glyphicon-remove form-control-feedback"></span>
-                            <span class="help-block"><strong>{{ $errors->first('marks_id') }}</strong></span>
-                        @endif
-                    </div>
+                    <label for="marks_id"> <strong>Marks_id</strong><span marks_id="Requis" style="color: #DE3246">(*)</span></label>
+                    <input id="marks_id" type="text" class="form-control{{ $errors->has('marks_id') ? ' has-error' : '' }}" required
+                            name="marks_id"
+                            placeholder="Entrez le marks_id"
+                            value="{{ old('marks_id') }}">
+                    @if ($errors->has('marks_id'))
+                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        <span class="help-block"><strong>{{ $errors->first('marks_id') }}</strong></span>
+                    @endif
+                </div>
                 
                 <div class="modal-footer">
                     <button type="reset" class="btn btn-icon mx-1 waves-effect waves-light btn-warning">

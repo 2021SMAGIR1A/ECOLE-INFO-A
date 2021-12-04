@@ -6,7 +6,7 @@
         <div class="border-bottom shadow-sm homeJumbotron d-flex align-items-center p-2" style="line-height: .10rem;">
             <div class="col-1"><span class="integral-box integral-box-sm integral-box-gray"><i class="fas fa-tasks"></i></span></div>
             <div class="col-6">
-                <label class="h3 font-weight-bold mt-1">Task Manager</label>
+                <label class="h3 font-weight-bold mt-1"></label>
                 <p class="text-muted">Affichage des </p>
             </div>
             <div class="col-5 d-flex justify-content-end">
@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card my-3">
-                    <h5 class="card-header">
+                    <h5 class="card-header text-uppercase">
                         <i class="fas fa-list"></i> LISTE DES 
                     </h5>
                     <div class="card-body">
@@ -33,57 +33,59 @@
                                 <thead>
                                 <tr>
                                     <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">N°</th>
-                                    <th class="text-center">TITRE</th>
-                                    <th class="text-center">DESCRIPTION</th>
-                                    <th class="text-center">UTILISATEUR</th>
+                                    <th class="text-center text-uppercase">titre</th>
+                                    <th class="text-center text-uppercase">description</th>
+                                    <th class="text-center text-uppercase"></th>
                                     
                                     <th class="text-center">ACTIONS</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @isset($notifications)
-                                    @foreach($notifications as $key => $notifications)
+                                    @foreach($notifications as $key => $notification)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-<td class="text-truncate" style="max-width: 200px"><span title="{{ $notifications->title }}">{{ $notifications->title }}</span></td>
-                                            <td class="text-truncate" style="max-width: 200px"><span title="{{ $notifications->description }}">{{ $notifications->description }}</span></td>
-                                            <td class="text-truncate" style="max-width: 200px"><span title="{{ $notifications->users_id }}">{{ $notifications->users_id }}</span></td>
+                                            <td class="text-truncate" style="max-width: 200px"><span title="{{ $notification->title }}">{{ $notification->title }}</span></td>
+                                            <td class="text-truncate" style="max-width: 200px"><span title="{{ $notification->description }}">{{ $notification->description }}</span></td>
+                                            <td class="text-truncate" style="max-width: 200px"><span title="{{ $notification->users_id }}">{{ $notification->users_id }}</span></td>
                                             
                                             <td class="text-center">
                                                 <div class="d-inline-flex">
-                                                    <a href="{{ route('Module-TaskManagerNotificationGetFind', $notifications->uuid) }}" title="Consulter"
-                                                        data-id= "{{ $notifications->id }}"
-                                                        data-uuid= "{{ $notifications->uuid }}"
-                                                        data-title= "{{ $notifications->title }}"
-                                                        data-description= "{{ $notifications->description }}"
-                                                        data-users_id= "{{ $notifications->users_id }}"
-                                                        
+                                                    <a href="{{ route('NotificationGetFind', $notification->uuid) }}" title="Consulter"
+                                                        {{-- data-id= "{{ $notification->id }}"
+                                                        data-uuid= "{{ $notification->uuid }}"
+                                                        data-title= "{{ $notification->title }}"
+                                                        data-description= "{{ $notification->description }}"
+                                                        data-users_id= "{{ $notification->users_id }}"
+                                                         --}}
                                                         data-toggle="modal"
-                                                        data-target=".modal-show"
-                                                        class="btn btn-sm btn-outline-info modalShow mr-1">
-                                                        <i class="fa fa-eye"></i>
+                                                        data-target="#showNotification{{ $notification->uuid }}Modal"
+                                                        class="mr-1">
+                                                        <i class="mdi mdi-eye text-info"></i>
                                                     </a>
-                                                    <a href="{{ route('Module-TaskManagerNotificationPostEdit', $notifications->uuid) }}" title="Editer"
-                                                        data-id= "{{ $notifications->id }}"
-                                                        data-uuid= "{{ $notifications->uuid }}"
-                                                        data-title= "{{ $notifications->title }}"
-                                                        data-description= "{{ $notifications->description }}"
-                                                        data-users_id= "{{ $notifications->users_id }}"
-                                                        
+                                                    <a href="{{ route('NotificationPostEdit', $notification->uuid) }}" title="Editer"
+                                                        {{-- data-id= "{{ $notification->id }}"
+                                                        data-uuid= "{{ $notification->uuid }}"
+                                                        data-title= "{{ $notification->title }}"
+                                                        data-description= "{{ $notification->description }}"
+                                                        data-users_id= "{{ $notification->users_id }}"
+                                                         --}}
                                                         data-toggle="modal"
-                                                        data-target=".modal-edit"
-                                                        class="btn btn-sm btn-outline-success modalEdit mr-1">
-                                                        <i class="fa fa-edit"></i>
+                                                        data-target="#editNotification{{ $notification->uuid }}Modal"
+                                                        class="mr-1">
+                                                        <i class="mdi mdi-square-edit-outline text-success"></i>
                                                     </a>
-                                                    {{-- <button class="btn btn-sm btn-outline-success modalEdit mr-1 btnEditNotification" title="Editer">
-                                                        <i class="fa fa-edit"></i>
+                                                    {{-- <button class="modalEdit mr-1 btnEditNotification" title="Editer">
+                                                        <i class=\mdi mdi-square-edit-outline"></i>
                                                     </button> --}}
-                                                    <button type="submit" class="btn btn-sm btn-outline-danger delete" data-uuid="{{ $notifications->uuid }}" title="Supprimer">
-                                                        <i class="fas fa-times-circle"></i>
+                                                    <button type="submit" class="delete" data-uuid="{{ $notification->uuid }}" title="Supprimer">
+                                                        <i class="mdi mdi-delete text-danger"></i>
                                                     </button>
                                                 </div>
                                             </td>
                                         </tr>
+                                        @include('pages.notifications._show')
+                                        @include('pages.notifications._edit')
                                     @endforeach
                                 @endisset
                                 </tbody>
@@ -96,8 +98,6 @@
     </div>
 
     @include('pages.notifications._create')
-    @include('pages.notifications._show')
-    @include('pages.notifications._edit')
 @endsection
 
     

@@ -12,6 +12,7 @@ class Room extends BaseModel
      */
     protected $table = 'rooms';
     
+    protected $guarded = ['id'];
     
     /**
      * Default keys to return
@@ -56,8 +57,8 @@ class Room extends BaseModel
             'title' => $values['title'],
             'description' => $values['description'],
         ]);
-        return ($create ? ['status' => true, 'message' => 'Ajout de  effectué avec succès !', 'data' => self::find($create)] :
-            ['status' => false, 'message' => 'Ajout de  Impossible !']);
+        return ($create ? ['status' => true, 'message' => 'Ajout de Salle effectué avec succès !', 'data' => self::find($create)] :
+            ['status' => false, 'message' => 'Ajout de Salle Impossible !']);
 
     }
 
@@ -77,8 +78,8 @@ class Room extends BaseModel
 
             'updated_at' => gmdate('Y-m-d H:i:s'),
         ]);
-        return ($create ? ['status' => true, 'message' => 'Mise à jour de  effectuée avec succès !', 'data' => self::find($create)] :
-            ['status' => false, 'message' => 'Mise à jour de  Impossible !']);
+        return ($create ? ['status' => true, 'message' => 'Mise à jour de Salle effectuée avec succès !', 'data' => self::find($create)] :
+            ['status' => false, 'message' => 'Mise à jour de Salle Impossible !']);
 
     }
 

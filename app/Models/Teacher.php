@@ -12,6 +12,7 @@ class Teacher extends BaseModel
      */
     protected $table = 'teachers';
     
+    protected $guarded = ['id'];
     
     /**
      * Default keys to return
@@ -19,7 +20,7 @@ class Teacher extends BaseModel
      * @var array
      */
     private static $defaultKeysToReturn = [
-        'id','uuid','matricule','nom','prenoms','users_id'
+        'id','uuid','matricule','firstname','lastname','users_id'
     ];
 
     /**
@@ -54,12 +55,12 @@ class Teacher extends BaseModel
         $create = self::create([
             'uuid' => Uuid::uuid4(),
             'matricule' => $values['matricule'],
-            'nom' => $values['nom'],
-            'prenoms' => $values['prenoms'],
+            'firstname' => $values['firstname'],
+            'lastname' => $values['lastname'],
             'users_id' => $values['users_id'],
         ]);
-        return ($create ? ['status' => true, 'message' => 'Ajout de  effectué avec succès !', 'data' => self::find($create)] :
-            ['status' => false, 'message' => 'Ajout de  Impossible !']);
+        return ($create ? ['status' => true, 'message' => 'Ajout de Enseignant effectué avec succès !', 'data' => self::find($create)] :
+            ['status' => false, 'message' => 'Ajout de Enseignant Impossible !']);
 
     }
 
@@ -75,14 +76,14 @@ class Teacher extends BaseModel
     {
         $create = $this->update([
             'matricule' => $values['matricule'],
-            'nom' => $values['nom'],
-            'prenoms' => $values['prenoms'],
+            'firstname' => $values['firstname'],
+            'lastname' => $values['lastname'],
             'users_id' => $values['users_id'],
 
             'updated_at' => gmdate('Y-m-d H:i:s'),
         ]);
-        return ($create ? ['status' => true, 'message' => 'Mise à jour de  effectuée avec succès !', 'data' => self::find($create)] :
-            ['status' => false, 'message' => 'Mise à jour de  Impossible !']);
+        return ($create ? ['status' => true, 'message' => 'Mise à jour de Enseignant effectuée avec succès !', 'data' => self::find($create)] :
+            ['status' => false, 'message' => 'Mise à jour de Enseignant Impossible !']);
 
     }
 

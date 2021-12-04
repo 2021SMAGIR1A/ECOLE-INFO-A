@@ -12,6 +12,7 @@ class FieldsHasCourse extends BaseModel
      */
     protected $table = 'fields_has_courses';
     
+    protected $guarded = ['id'];
     
     /**
      * Default keys to return

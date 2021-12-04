@@ -15,11 +15,11 @@ use App\Http\Controllers\TestController;
 |
 */
 Route::group(['prefix' => 'test'], function (){
-    Route::get('/', [TestController::class, 'getIndex'])->name('Module-TaskManagerTestGetIndex');
-    Route::get('/{uuid}', [TestController::class, 'getFind'])->name('Module-TaskManagerTestGetFind');
-    Route::get('/create', [TestController::class, 'getCreate'])->name('Module-TaskManagerTestGetCreate');
-    Route::post('/create', [TestController::class, 'postCreate'])->name('Module-TaskManagerTestPostCreate');
-    Route::get('/edit/{uuid}', [TestController::class, 'getEdit'])->name('Module-TaskManagerTestGetEdit');
-    Route::post('/edit/{uuid}', [TestController::class, 'postEdit'])->name('Module-TaskManagerTestPostEdit');
-    Route::post('/delete', [TestController::class, 'postDelete'])->name('Module-TaskManagerTestPostDelete');
+    Route::get('/', [TestController::class, 'getIndex'])->name('TestGetIndex');
+    Route::get('/{uuid}', [TestController::class, 'getFind'])->name('TestGetFind');
+    Route::get('/create', [TestController::class, 'getCreate'])->name('TestGetCreate');
+    Route::post('/create', [TestController::class, 'postCreate'])->name('TestPostCreate');
+    Route::get('/edit/{uuid}', [TestController::class, 'getEdit'])->name('TestGetEdit');
+    Route::post('/edit/{uuid}', [TestController::class, 'postEdit'])->name('TestPostEdit');
+    Route::post('/delete', [TestController::class, 'postDelete'])->name('TestPostDelete');
 });

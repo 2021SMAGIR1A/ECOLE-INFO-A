@@ -12,6 +12,7 @@ class Test extends BaseModel
      */
     protected $table = 'tests';
     
+    protected $guarded = ['id'];
     
     /**
      * Default keys to return
@@ -59,8 +60,8 @@ class Test extends BaseModel
             'courses_id' => $values['courses_id'],
             'classes_id' => $values['classes_id'],
         ]);
-        return ($create ? ['status' => true, 'message' => 'Ajout de  effectué avec succès !', 'data' => self::find($create)] :
-            ['status' => false, 'message' => 'Ajout de  Impossible !']);
+        return ($create ? ['status' => true, 'message' => 'Ajout de Evaluation effectué avec succès !', 'data' => self::find($create)] :
+            ['status' => false, 'message' => 'Ajout de Evaluation Impossible !']);
 
     }
 
@@ -83,8 +84,8 @@ class Test extends BaseModel
 
             'updated_at' => gmdate('Y-m-d H:i:s'),
         ]);
-        return ($create ? ['status' => true, 'message' => 'Mise à jour de  effectuée avec succès !', 'data' => self::find($create)] :
-            ['status' => false, 'message' => 'Mise à jour de  Impossible !']);
+        return ($create ? ['status' => true, 'message' => 'Mise à jour de Evaluation effectuée avec succès !', 'data' => self::find($create)] :
+            ['status' => false, 'message' => 'Mise à jour de Evaluation Impossible !']);
 
     }
 

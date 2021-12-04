@@ -25,12 +25,6 @@
         </a>
 
         <ul class="list-unstyled topbar-right-menu float-right mb-0">
-            <li class="dropdown notification-list">
-                <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" id="topbar-notifydrop" role="button" aria-haspopup="true" aria-expanded="false">
-                    <i class="dripicons-plus noti-icon"></i>
-                </a>
-            </li>
-
             <li class="dropdown notification-list d-lg-none">
                 <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="dripicons-search noti-icon"></i>
@@ -161,7 +155,7 @@
                 </div>
             </li>
 
-            <li class="dropdown notification-list d-none d-sm-inline-block">
+            {{-- <li class="dropdown notification-list d-none d-sm-inline-block">
                 <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                     <i class="dripicons-view-apps noti-icon"></i>
                 </a>
@@ -213,7 +207,7 @@
                     </div>
 
                 </div>
-            </li>
+            </li> --}}
 
             <li class="notification-list">
                 <a class="nav-link right-bar-toggle" href="javascript: void(0);">
@@ -225,48 +219,32 @@
                 <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" id="topbar-userdrop" href="#" role="button" aria-haspopup="true"
                     aria-expanded="false">
                     <span class="account-user-avatar"> 
-                        <img src="assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
+                        <img src="{{ Voyager::image(\Auth::user()->avatar) }}" alt="user-image" class="rounded-circle">
                     </span>
                     <span>
-                        <span class="account-user-name">Dominic Keller</span>
-                        <span class="account-position">Founder</span>
+                        <span class="account-user-name">{{ \Auth::user()->name }}</span>
+                        <span class="account-position">{{ \Auth::user()->role->display_name }}</span>
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu profile-dropdown" aria-labelledby="topbar-userdrop">
                     <!-- item-->
                     <div class=" dropdown-header noti-title">
-                        <h6 class="text-overflow m-0">Welcome !</h6>
+                        <h6 class="text-overflow m-0">Bienvenue !</h6>
                     </div>
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <i class="mdi mdi-account-circle mr-1"></i>
-                        <span>My Account</span>
+                        <span>Mon compte</span>
                     </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="mdi mdi-account-edit mr-1"></i>
-                        <span>Settings</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="mdi mdi-lifebuoy mr-1"></i>
-                        <span>Support</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="mdi mdi-lock-outline mr-1"></i>
-                        <span>Lock Screen</span>
-                    </a>
-
-                    <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="mdi mdi-logout mr-1"></i>
-                        <span>Logout</span>
-                    </a>
+                    
+                    <form action="{{ route('voyager.logout') }}" method="POST">
+                        {{ csrf_field() }}
+                        <button type="submit" class="dropdown-item notify-item">
+                            <i class="mdi mdi-logout mr-1"></i>
+                            <span>Deconnexion</span>
+                        </button>
+                    </form>
 
                 </div>
             </li>

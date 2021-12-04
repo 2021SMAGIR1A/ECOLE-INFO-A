@@ -15,11 +15,11 @@ use App\Http\Controllers\FieldController;
 |
 */
 Route::group(['prefix' => 'field'], function (){
-    Route::get('/', [FieldController::class, 'getIndex'])->name('Module-TaskManagerFieldGetIndex');
-    Route::get('/{uuid}', [FieldController::class, 'getFind'])->name('Module-TaskManagerFieldGetFind');
-    Route::get('/create', [FieldController::class, 'getCreate'])->name('Module-TaskManagerFieldGetCreate');
-    Route::post('/create', [FieldController::class, 'postCreate'])->name('Module-TaskManagerFieldPostCreate');
-    Route::get('/edit/{uuid}', [FieldController::class, 'getEdit'])->name('Module-TaskManagerFieldGetEdit');
-    Route::post('/edit/{uuid}', [FieldController::class, 'postEdit'])->name('Module-TaskManagerFieldPostEdit');
-    Route::post('/delete', [FieldController::class, 'postDelete'])->name('Module-TaskManagerFieldPostDelete');
+    Route::get('/', [FieldController::class, 'getIndex'])->name('FieldGetIndex');
+    Route::get('/{uuid}', [FieldController::class, 'getFind'])->name('FieldGetFind');
+    Route::get('/create', [FieldController::class, 'getCreate'])->name('FieldGetCreate');
+    Route::post('/create', [FieldController::class, 'postCreate'])->name('FieldPostCreate');
+    Route::get('/edit/{uuid}', [FieldController::class, 'getEdit'])->name('FieldGetEdit');
+    Route::post('/edit/{uuid}', [FieldController::class, 'postEdit'])->name('FieldPostEdit');
+    Route::post('/delete', [FieldController::class, 'postDelete'])->name('FieldPostDelete');
 });

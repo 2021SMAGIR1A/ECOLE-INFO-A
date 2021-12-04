@@ -17,6 +17,7 @@ class FieldController extends Controller
     public function getIndex()
     {
         $fields = Field::getAll();
+        // dd($fields);
         return view('pages.fields.index', compact('fields'));
     }
     
